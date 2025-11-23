@@ -64,14 +64,14 @@ const Hero = () => {
     return (
         <section className="hero container" ref={heroRef} style={{ '--mouse-x': '50%', '--mouse-y': '50%' }}>
             <div className="hero-content">
-                <p className="hero-intro">Hi, my name is</p>
+                <p className="hero-intro">Hi, I'm</p>
                 <h1 className="hero-name">{personalInfo.name}</h1>
                 <h2 className="hero-title">
                     <span className="typing-text">{text}</span>
                     <span className="cursor">|</span>
                 </h2>
                 <p className="hero-desc">
-                    {personalInfo.summary}
+                    I build exceptional digital experiences. Currently focused on creating accessible, user-centered products.
                 </p>
                 <div className="hero-btn">
                     <a href="#contact" className="btn-primary">Get In Touch</a>
