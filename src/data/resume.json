@@ -1,0 +1,133 @@
+{
+    "personalInfo": {
+        "name": "DHARMIKBHAI PATEL",
+        "role": "Java Full Stack Developer",
+        "email": "dharmikgcp@gmail.com",
+        "phone": "+1 (647) 937-5608",
+        "location": "ON, Canada",
+        "linkedin": "www.linkedin.com/in/dharmikbhaipatel",
+        "summary": "I'm a Java Full Stack Developer with 6+ years of experience building scalable enterprise applications. I specialize in Spring Boot, microservices, and cloud technologies like AWS and Azure.\n\nI love solving complex problems and turning ideas into reliable, high-performing software. Whether it's optimizing database queries, automating CI/CD pipelines, or implementing secure authentication systems, I focus on delivering solutions that make a real impact.\n\nCurrently, I'm working on healthcare and insurance platforms, where I've helped reduce API response times by 50% and improved system reliability through containerization with Docker and Kubernetes."
+    },
+    "skills": {
+        "Languages": [
+            "Java",
+            "JavaScript",
+            "Python",
+            "SQL",
+            "jQuery",
+            "CSS3",
+            "HTML5",
+            "JSON"
+        ],
+        "Frameworks": [
+            "Spring",
+            "Spring Boot",
+            "Backbone.js",
+            "React",
+            "Node.js",
+            "Flask",
+            "Hibernate"
+        ],
+        "Backend": [
+            "REST APIs",
+            "Microservices",
+            "SOAP"
+        ],
+        "FrontEnd": [
+            "HTML",
+            "CSS",
+            "jQuery"
+        ],
+        "Testing": [
+            "JUnit",
+            "Mockito",
+            "Selenium WebDriver"
+        ],
+        "Tools": [
+            "Bitbucket",
+            "Git",
+            "GitHub",
+            "Maven",
+            "Gradle",
+            "IntelliJ IDEA",
+            "VS Code",
+            "Eclipse",
+            "Swagger",
+            "Postman",
+            "Jenkins",
+            "AWS",
+            "Docker",
+            "Kubernetes",
+            "SOAP Sender",
+            "JIRA",
+            "Splunk"
+        ],
+        "Databases": [
+            "Sybase",
+            "DB2",
+            "PostgreSQL",
+            "MySQL",
+            "H2"
+        ]
+    },
+    "experience": [
+        {
+            "company": "Spiral Data",
+            "client": "Canada Life Insurance",
+            "role": "FULL STACK JAVA DEVELOPER",
+            "location": "Toronto, Canada",
+            "period": "Apr 2023 – Present",
+            "highlights": [
+                "Developed and maintained scalable, distributed backend services using Java, Spring Framework, and Spring Boot in a high-availability financial environment.",
+                "Built RESTful APIs for internal systems, ensuring secure and reliable data exchange.",
+                "Worked with SQL databases, including Sybase and DB2, for data retrieval, storage, and query development.",
+                "Implemented and consumed SOAP Web Services with enterprise systems.",
+                "Applied Test-Driven Development (TDD) practices using JUnit to ensure code reliability and maintainability.",
+                "Enhanced observability by improving logging with Log4j, leading to a 30% faster root cause analysis during production issues.",
+                "Optimized SQL and JPA queries and introduced indexing/caching strategies, cutting average API response time by 50% across key modules.",
+                "Built and scheduled background jobs using Spring Scheduler and Quartz for automated report generation, data sync, and batch invoicing.",
+                "Worked with AWS services (EC2, S3, RDS) for hosting backend APIs and file storage, ensuring 99.5% uptime in production environments.",
+                "Containerized applications with Docker, and managed deployments via Jenkins pipelines, reducing release time from hours to minutes.",
+                "Developed role-based access control (RBAC) using Spring Security and JWT tokens, improving API-level security compliance.",
+                "Parsed and validated JSON payloads in RESTful API responses using Jackson library, implementing custom deserializers for complex financial data structures."
+            ]
+        },
+        {
+            "company": "Epsilon Solutions",
+            "client": "AllState Insurance",
+            "role": "JAVA DEVELOPER",
+            "location": "Toronto, Canada",
+            "period": "July 2019 – Mar 2023",
+            "highlights": [
+                "Designed and implemented independent, loosely coupled microservices using Java 11, Spring Boot, and Spring Cloud to handle backup scheduling, audit logging, and notifications.",
+                "Integrated Apache Kafka to support event-driven communication for triggering backup/recovery tasks and real-time alert notifications.",
+                "Packaged services using Docker and deployed on Kubernetes clusters for scalability, fault tolerance, and automated failover.",
+                "Participated in pipeline setup using Jenkins/GitLab CI/CD to automate testing, security scanning, and deployment of microservices.",
+                "Wrote unit and integration tests using JUnit, Mockito.",
+                "Worked in an Agile team using JIRA for sprint planning, story estimation, and continuous collaboration with QA, DevOps, and production teams.",
+                "Coordinate strategic project test environments, including configuration and test data setup, and reviewed requirements documents.",
+                "Tracked and documented software product defects using JIRA in an Agile environment.",
+                "Provided Level 2 support to the internal team, troubleshooting and resolving issues as they arise.",
+                "Developed and maintained Python Scripts for automating deployment process, log analysis, and supplemental data processing task to optimize microservice performance within the insurance domain.",
+                "Utilized JSON format for configuration files and data transfer in microservices architecture, enabling seamless communication between services."
+            ]
+        }
+    ],
+    "education": [
+        {
+            "degree": "Diploma in Computer Programming",
+            "school": "Seneca College, Canada",
+            "year": "2019"
+        },
+        {
+            "degree": "Bachelor of Technology in Computer Engineering",
+            "school": "Uka Tarsadia University, India",
+            "year": "2017"
+        },
+        {
+            "degree": "Diploma in Computer Engineering",
+            "school": "Parul Polytechnic Institute, Vadodara, India",
+            "year": "2014"
+        }
+    ]
+}

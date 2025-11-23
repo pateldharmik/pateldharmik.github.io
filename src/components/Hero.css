@@ -1,0 +1,85 @@
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.hero-intro {
+    color: var(--accent-primary);
+    font-family: var(--font-mono);
+    font-size: clamp(14px, 5vw, 16px);
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.hero-name {
+    font-size: clamp(40px, 8vw, 80px);
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.hero-title {
+    font-size: clamp(30px, 7vw, 70px);
+    font-weight: 600;
+    color: var(--text-secondary);
+    line-height: 1.1;
+    margin: 10px 0 0;
+}
+
+.hero-desc {
+    margin: 20px 0 0;
+    max-width: 540px;
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.hero-btn {
+    margin-top: 50px;
+}
+
+.typing-text {
+    color: var(--text-secondary);
+}
+
+.cursor {
+    display: inline-block;
+    background-color: var(--accent-primary);
+    width: 3px;
+    animation: blink 1s infinite;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 90vh;
+    }
+
+    .hero-desc {
+        font-size: 16px;
+    }
+}

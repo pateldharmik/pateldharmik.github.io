@@ -1,0 +1,157 @@
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaMoon, FaSun, FaTerminal, FaBars, FaTimes } from 'react-icons/fa';
+import './Header.css';
+import resumeData from '../data/resume.json';
+
+const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState('dark'); // Default to dark
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    // Check local storage for theme preference
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
+  const navLinks = [
+    { name: 'About', url: '#about' },
+    { name: 'Experience', url: '#experience' },
+    { name: 'Skills', url: '#skills' },
+    { name: 'Contact', url: '#contact' },
+  ];
+
+  return (
+    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+      <nav className="nav container">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="logo"
+        >
+          <a href="#">DP</a>
+        </motion.div>
+
+        {/* Desktop Navigation */}
+        <div className="nav-links desktop-nav">
+          <ol>
+            {navLinks.map((link, i) => (
+              <motion.li
+                key={i}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <a href={link.url}>{link.name}</a>
+              </motion.li>
+            ))}
+          </ol>
+
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="theme-toggle-wrapper"
+          >
+            <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
+              {theme === 'dark' ? <FaSun /> : <FaMoon />}
+            </button>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            <a
+              href="/resume.pdf"
+              download="Dharmikbhai_Patel_Resume.pdf"
+              className="btn-resume"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Resume
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="mobile-menu-btn"
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+        >
+          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        {/* Mobile Navigation */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              className="mobile-nav"
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'tween', duration: 0.3 }}
+            >
+              <ol>
+                {navLinks.map((link, i) => (
+                  <li key={i}>
+                    <a href={link.url} onClick={closeMobileMenu}>{link.name}</a>
+                  </li>
+                ))}
+              </ol>
+              <div className="mobile-nav-actions">
+                <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
+                  {theme === 'dark' ? <FaSun /> : <FaMoon />}
+                </button>
+                <a
+                  href="/resume.pdf"
+                  download="Dharmikbhai_Patel_Resume.pdf"
+                  className="btn-resume"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMobileMenu}
+                >
+                  Resume
+                </a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
+    </header>
+  );
+};
+
+export default Header;
