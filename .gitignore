@@ -30,3 +30,19 @@ cost_comparison.md
 deployment_strategy.md
 walkthrough.md
 
+
+.vercel
+
+# System Files
+Thumbs.db
+
+# Environment Variables
+.env
+.env.test
+.env.production
+
+# Testing
+coverage/
+
+# TypeScript
+*.tsbuildinfo
