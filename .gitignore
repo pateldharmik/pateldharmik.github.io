@@ -23,12 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Agent workflows and documentation
-.agent/
-implementation_plan.md
-cost_comparison.md
-deployment_strategy.md
-walkthrough.md
 
 
 .vercel
