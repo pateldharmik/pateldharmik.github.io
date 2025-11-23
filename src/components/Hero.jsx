@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './Hero.css';
 import resumeData from '../data/resume.json';
@@ -9,6 +9,7 @@ const Hero = () => {
     const [isDeleting, setIsDeleting] = useState(false);
     const [loopNum, setLoopNum] = useState(0);
     const [typingSpeed, setTypingSpeed] = useState(150);
+    const heroRef = useRef(null);
 
     useEffect(() => {
         const roles = [personalInfo.role, "Full Stack Developer", "Java Expert", "Cloud Enthusiast"];
@@ -36,53 +37,45 @@ const Hero = () => {
         return () => clearTimeout(timer);
     }, [text, isDeleting, loopNum, personalInfo.role, typingSpeed]);
 
+    // Mouse tracking for gradient orb effect
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            if (heroRef.current) {
+                const rect = heroRef.current.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                heroRef.current.style.setProperty('--mouse-x', `${x}px`);
+                heroRef.current.style.setProperty('--mouse-y', `${y}px`);
+            }
+        };
+
+        const heroElement = heroRef.current;
+        if (heroElement) {
+            heroElement.addEventListener('mousemove', handleMouseMove);
+        }
+
+        return () => {
+            if (heroElement) {
+                heroElement.removeEventListener('mousemove', handleMouseMove);
+            }
+        };
+    }, []);
+
     return (
-        <section className="hero container">
+        <section className="hero container" ref={heroRef} style={{ '--mouse-x': '50%', '--mouse-y': '50%' }}>
             <div className="hero-content">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                >
-                    <h1 className="hero-intro">Hi, my name is</h1>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.7 }}
-                >
-                    <h2 className="hero-name">{personalInfo.name}.</h2>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.8 }}
-                >
-                    <h3 className="hero-title">
-                        I am a <span className="typing-text">{text}</span>
-                        <span className="cursor">|</span>
-                    </h3>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.9 }}
-                >
-                    <p className="hero-desc">
-                        Based in {personalInfo.location}.
-                        I specialize in building (and occasionally designing) exceptional digital experiences.
-                        Currently, I'm focused on building accessible, human-centered products.
-                    </p>
-                </motion.div>
-                <motion.a
-                    href="mailto:dharmikgcp@gmail.com"
-                    className="btn-primary hero-btn"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 1.0 }}
-                >
-                    Get In Touch
-                </motion.a>
+                <p className="hero-intro">Hi, my name is</p>
+                <h1 className="hero-name">{personalInfo.name}</h1>
+                <h2 className="hero-title">
+                    <span className="typing-text">{text}</span>
+                    <span className="cursor">|</span>
+                </h2>
+                <p className="hero-desc">
+                    {personalInfo.summary}
+                </p>
+                <div className="hero-btn">
+                    <a href="#contact" className="btn-primary">Get In Touch</a>
+                </div>
             </div>
         </section>
     );
