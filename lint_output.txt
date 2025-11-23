@@ -1,0 +1,27 @@
+
+> dharmikbhai-patel@0.0.0 lint
+> eslint .
+
+
+C:\Users\patel\.gemini\antigravity\scratch\dharmikbhai-patel\dharmikbhai-patel\src\components\Header.jsx
+  21:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  19 |     // Check local storage for theme preference
+  20 |     const savedTheme = localStorage.getItem('theme') || 'dark';
+> 21 |     setTheme(savedTheme);
+     |     ^^^^^^^^ Avoid calling setState() directly within an effect
+  22 |     document.documentElement.setAttribute('data-theme', savedTheme);
+  23 |
+  24 |     window.addEventListener('scroll', handleScroll);  react-hooks/set-state-in-effect
+
+C:\Users\patel\.gemini\antigravity\scratch\dharmikbhai-patel\dharmikbhai-patel\src\components\TechStack.jsx
+  4:8  error  'resumeData' is defined but never used. Allowed unused vars must match /^[A-Z_]|motion/u  no-unused-vars
+
+Γ£û 2 problems (2 errors, 0 warnings)
+

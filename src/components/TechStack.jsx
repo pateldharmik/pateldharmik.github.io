@@ -1,10 +1,10 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import './TechStack.css';
-import resumeData from '../data/resume.json';
+
 
 const TechStack = () => {
-    const { skills } = resumeData;
+    // const { skills } = resumeData; // skills not used here
 
     const container = {
         hidden: { opacity: 0 },

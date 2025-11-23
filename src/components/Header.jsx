@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaMoon, FaSun, FaTerminal, FaBars, FaTimes } from 'react-icons/fa';
+import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
 import './Header.css';
-import resumeData from '../data/resume.json';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState('dark'); // Default to dark
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -17,16 +16,16 @@ const Header = () => {
       }
     };
 
-    // Check local storage for theme preference
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
-    document.documentElement.setAttribute('data-theme', savedTheme);
-
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [scrolled]);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';

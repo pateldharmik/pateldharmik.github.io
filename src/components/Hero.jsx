@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import './Hero.css';
 import resumeData from '../data/resume.json';
@@ -10,9 +10,9 @@ const Hero = () => {
     const [loopNum, setLoopNum] = useState(0);
     const [typingSpeed, setTypingSpeed] = useState(150);
 
-    const roles = [personalInfo.role, "Full Stack Developer", "Java Expert", "Cloud Enthusiast"];
-
     useEffect(() => {
+        const roles = [personalInfo.role, "Full Stack Developer", "Java Expert", "Cloud Enthusiast"];
+
         const handleTyping = () => {
             const i = loopNum % roles.length;
             const fullText = roles[i];
@@ -34,7 +34,7 @@ const Hero = () => {
 
         const timer = setTimeout(handleTyping, typingSpeed);
         return () => clearTimeout(timer);
-    }, [text, isDeleting, loopNum, roles, typingSpeed]);
+    }, [text, isDeleting, loopNum, personalInfo.role, typingSpeed]);
 
     return (
         <section className="hero container">

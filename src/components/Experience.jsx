@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import './Experience.css';
 import resumeData from '../data/resume.json';
