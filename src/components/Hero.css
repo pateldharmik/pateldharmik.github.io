@@ -5,22 +5,7 @@
     justify-content: center;
     align-items: flex-start;
     position: relative;
-    overflow: hidden;
     background: var(--gradient-hero);
-}
-
-/* Animated gradient orb that follows cursor */
-.hero::before {
-    content: '';
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(calc(var(--mouse-x, 50%) - 300px), calc(var(--mouse-y, 50%) - 300px));
-    transition: transform 0.2s ease;
-    z-index: 0;
 }
 
 .hero-content {
@@ -113,11 +98,6 @@
 @media (max-width: 768px) {
     .hero {
         min-height: 90vh;
-    }
-
-    .hero::before {
-        width: 400px;
-        height: 400px;
     }
 
     .hero-desc {

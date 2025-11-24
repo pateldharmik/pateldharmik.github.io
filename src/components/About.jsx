@@ -6,26 +6,29 @@ import resumeData from '../data/resume.json';
 const About = () => {
     const { skills } = resumeData;
 
+    // Flatten all skills from the categorized object
+    const allSkills = Object.values(skills).flat();
+
     const skillCategories = [
         {
             title: 'Frontend',
             icon: <FaCode />,
-            skills: skills.filter(skill =>
-                ['React', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'Tailwind CSS'].includes(skill)
+            skills: allSkills.filter(skill =>
+                ['React', 'JavaScript', 'HTML', 'CSS', 'HTML5', 'CSS3', 'jQuery'].includes(skill)
             )
         },
         {
             title: 'Backend',
             icon: <FaServer />,
-            skills: skills.filter(skill =>
-                ['Java', 'Spring Boot', 'Node.js', 'Python', 'REST APIs'].includes(skill)
+            skills: allSkills.filter(skill =>
+                ['Java', 'Spring', 'Spring Boot', 'Node.js', 'Python', 'REST APIs', 'Microservices', 'Hibernate'].includes(skill)
             )
         },
         {
             title: 'Tools & Technologies',
             icon: <FaTools />,
-            skills: skills.filter(skill =>
-                ['Git', 'Docker', 'AWS', 'MongoDB', 'PostgreSQL', 'MySQL'].includes(skill)
+            skills: allSkills.filter(skill =>
+                ['Git', 'Docker', 'AWS', 'PostgreSQL', 'MySQL', 'Jenkins', 'Kubernetes', 'Maven'].includes(skill)
             )
         }
     ];

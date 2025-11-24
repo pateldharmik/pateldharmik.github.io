@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import './Hero.css';
 import resumeData from '../data/resume.json';
@@ -9,7 +9,6 @@ const Hero = () => {
     const [isDeleting, setIsDeleting] = useState(false);
     const [loopNum, setLoopNum] = useState(0);
     const [typingSpeed, setTypingSpeed] = useState(150);
-    const heroRef = useRef(null);
 
     useEffect(() => {
         const roles = [personalInfo.role, "Full Stack Developer", "Java Expert", "Cloud Enthusiast"];
@@ -37,41 +36,17 @@ const Hero = () => {
         return () => clearTimeout(timer);
     }, [text, isDeleting, loopNum, personalInfo.role, typingSpeed]);
 
-    // Mouse tracking for gradient orb effect
-    useEffect(() => {
-        const handleMouseMove = (e) => {
-            if (heroRef.current) {
-                const rect = heroRef.current.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                heroRef.current.style.setProperty('--mouse-x', `${x}px`);
-                heroRef.current.style.setProperty('--mouse-y', `${y}px`);
-            }
-        };
-
-        const heroElement = heroRef.current;
-        if (heroElement) {
-            heroElement.addEventListener('mousemove', handleMouseMove);
-        }
-
-        return () => {
-            if (heroElement) {
-                heroElement.removeEventListener('mousemove', handleMouseMove);
-            }
-        };
-    }, []);
-
     return (
-        <section className="hero container" ref={heroRef} style={{ '--mouse-x': '50%', '--mouse-y': '50%' }}>
+        <section className="hero container">
             <div className="hero-content">
-                <p className="hero-intro">Hi, I'm</p>
+                <p className="hero-intro">Hi, my name is</p>
                 <h1 className="hero-name">{personalInfo.name}</h1>
                 <h2 className="hero-title">
-                    <span className="typing-text">{text}</span>
+                    I am a <span className="typing-text">{text}</span>
                     <span className="cursor">|</span>
                 </h2>
                 <p className="hero-desc">
-                    I build exceptional digital experiences. Currently focused on creating accessible, user-centered products.
+                    Based in {personalInfo.location}. I specialize in building (and occasionally designing) exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products.
                 </p>
                 <div className="hero-btn">
                     <a href="#contact" className="btn-primary">Get In Touch</a>

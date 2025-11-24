@@ -93,7 +93,7 @@ const Header = () => {
             transition={{ duration: 0.5, delay: 0.5 }}
           >
             <a
-              href="resume.pdf"
+              href="/resume.pdf"
               download="Dharmikbhai_Patel_Resume.pdf"
               className="btn-resume"
               target="_blank"
@@ -135,7 +135,7 @@ const Header = () => {
                   {theme === 'dark' ? <FaSun /> : <FaMoon />}
                 </button>
                 <a
-                  href="resume.pdf"
+                  href="/resume.pdf"
                   download="Dharmikbhai_Patel_Resume.pdf"
                   className="btn-resume"
                   target="_blank"
