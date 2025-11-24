@@ -5,7 +5,13 @@ import './Header.css';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
+
+  // Always initialize theme based on system preference
+  const [theme, setTheme] = useState(() => {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return prefersDark ? 'dark' : 'light';
+  });
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -24,14 +30,12 @@ const Header = () => {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    // No localStorage - always use system preference on next visit
   }, [theme]);
 
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
   };
 
   const toggleMobileMenu = () => {
@@ -45,7 +49,7 @@ const Header = () => {
   const navLinks = [
     { name: 'About', url: '#about' },
     { name: 'Experience', url: '#experience' },
-    { name: 'Skills', url: '#skills' },
+    { name: 'Skills', url: '#skills-expertise' },
     { name: 'Contact', url: '#contact' },
   ];
 

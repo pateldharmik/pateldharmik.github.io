@@ -2,9 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
-import TechStack from './components/TechStack';
+import SkillsExpertise from './components/SkillsExpertise';
 import Experience from './components/Experience';
-import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollReveal from './components/ScrollReveal';
@@ -43,13 +42,10 @@ function App() {
           <About />
         </ScrollReveal>
         <ScrollReveal>
-          <TechStack />
+          <SkillsExpertise />
         </ScrollReveal>
         <ScrollReveal>
           <Experience />
-        </ScrollReveal>
-        <ScrollReveal>
-          <Skills />
         </ScrollReveal>
         <ScrollReveal>
           <Contact />

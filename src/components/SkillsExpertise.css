@@ -1,0 +1,213 @@
+/* Subsection styling */
+.subsection-title {
+    color: var(--text-primary);
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-family: var(--font-mono);
+}
+
+.subsection-intro {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+/* Core Technologies Section */
+.core-tech-section {
+    margin-bottom: 60px;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.tech-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.tech-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: var(--glass-shadow);
+}
+
+[data-theme='terminal'] .tech-card {
+    background: transparent;
+    border: 1px solid var(--text-secondary);
+}
+
+[data-theme='terminal'] .tech-card:hover {
+    border-color: var(--text-primary);
+    background-color: rgba(0, 255, 65, 0.05);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+}
+
+.tech-name {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.tech-category {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+[data-theme='terminal'] .tech-category {
+    color: var(--text-secondary);
+}
+
+[data-theme='terminal'] .tech-category::before {
+    content: "// ";
+}
+
+/* All Skills Section */
+.all-skills-section {
+    margin-top: 60px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+[data-theme='terminal'] .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.skill-category {
+    padding: 20px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+/* Glassmorphism override */
+.skill-category.glass-panel {
+    background: var(--glass-bg);
+    border: var(--glass-border);
+}
+
+.skill-category:hover {
+    box-shadow: var(--glass-shadow);
+    border-color: var(--accent-primary);
+    transform: translateY(-5px);
+}
+
+[data-theme='terminal'] .skill-category {
+    background-color: transparent;
+    padding: 15px;
+    border: 1px solid var(--text-secondary);
+    box-shadow: none;
+    transition: none;
+}
+
+[data-theme='terminal'] .skill-category:hover {
+    transform: none;
+    border-color: var(--text-primary);
+    box-shadow: 5px 5px 0 var(--text-secondary);
+}
+
+.skill-category h4 {
+    color: var(--text-primary);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-family: var(--font-mono);
+    font-weight: 600;
+}
+
+[data-theme='terminal'] .skill-category h4 {
+    color: var(--bg-primary);
+    background-color: var(--text-primary);
+    margin: -15px -15px 15px -15px;
+    padding: 10px 15px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-category li {
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+[data-theme='terminal'] .skill-category li {
+    color: var(--text-primary);
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.skill-category li::before {
+    content: "▹";
+    color: var(--accent-primary);
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+[data-theme='terminal'] .skill-category li::before {
+    content: "[x]";
+    color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .subsection-title {
+        font-size: 20px;
+        margin-top: 40px;
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 15px;
+    }
+
+    .tech-card {
+        padding: 15px;
+    }
+
+    .tech-name {
+        font-size: 14px;
+    }
+
+    .tech-category {
+        font-size: 11px;
+    }
+
+    .core-tech-section {
+        margin-bottom: 40px;
+    }
+
+    .all-skills-section {
+        margin-top: 40px;
+    }
+}

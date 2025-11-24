@@ -43,10 +43,10 @@
             "Mockito",
             "Selenium WebDriver"
         ],
-        "Tools": [
-            "Bitbucket",
+        "Development Tools": [
             "Git",
             "GitHub",
+            "Bitbucket",
             "Maven",
             "Gradle",
             "IntelliJ IDEA",
@@ -54,12 +54,14 @@
             "Eclipse",
             "Swagger",
             "Postman",
+            "JIRA"
+        ],
+        "DevOps & Cloud": [
             "Jenkins",
             "AWS",
             "Docker",
             "Kubernetes",
             "SOAP Sender",
-            "JIRA",
             "Splunk"
         ],
         "Databases": [

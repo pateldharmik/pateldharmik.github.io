@@ -9,27 +9,21 @@ const About = () => {
     // Flatten all skills from the categorized object
     const allSkills = Object.values(skills).flat();
 
-    const skillCategories = [
+    const focusAreas = [
         {
-            title: 'Frontend',
+            title: 'Full Stack Development',
             icon: <FaCode />,
-            skills: allSkills.filter(skill =>
-                ['React', 'JavaScript', 'HTML', 'CSS', 'HTML5', 'CSS3', 'jQuery'].includes(skill)
-            )
+            description: 'Building end-to-end web applications with modern frameworks and best practices'
         },
         {
-            title: 'Backend',
+            title: 'Cloud & DevOps',
             icon: <FaServer />,
-            skills: allSkills.filter(skill =>
-                ['Java', 'Spring', 'Spring Boot', 'Node.js', 'Python', 'REST APIs', 'Microservices', 'Hibernate'].includes(skill)
-            )
+            description: 'Designing scalable microservices and automating deployment pipelines'
         },
         {
-            title: 'Tools & Technologies',
+            title: 'Problem Solving',
             icon: <FaTools />,
-            skills: allSkills.filter(skill =>
-                ['Git', 'Docker', 'AWS', 'PostgreSQL', 'MySQL', 'Jenkins', 'Kubernetes', 'Maven'].includes(skill)
-            )
+            description: 'Optimizing performance, ensuring security, and delivering reliable solutions'
         }
     ];
 
@@ -50,27 +44,21 @@ const About = () => {
                             seamless user experiences backed by robust, scalable architectures.
                         </p>
                         <p>
-                            When I'm not coding, you'll find me exploring new technologies, contributing to
-                            open-source projects, or sharing knowledge with the developer community.
+                            When I'm not coding, you'll find me exploring new technologies and
+                            sharing knowledge with the developer community.
                         </p>
                     </div>
                     <div className="about-skills">
-                        {skillCategories.map((category, index) => (
-                            category.skills.length > 0 && (
-                                <div key={index} className="skill-category glass-panel glass-panel-hover">
-                                    <h3>
-                                        {category.icon}
-                                        {category.title}
-                                    </h3>
-                                    <div className="skill-tags">
-                                        {category.skills.map((skill, idx) => (
-                                            <span key={idx} className="skill-tag">
-                                                {skill}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            )
+                        {focusAreas.map((area, index) => (
+                            <div key={index} className="skill-category glass-panel glass-panel-hover">
+                                <h3>
+                                    {area.icon}
+                                    {area.title}
+                                </h3>
+                                <p className="focus-description">
+                                    {area.description}
+                                </p>
+                            </div>
                         ))}
                     </div>
                 </div>

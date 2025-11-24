@@ -21,20 +21,20 @@ const TechStack = () => {
         show: { opacity: 1, y: 0 }
     };
 
-    // Featured tech stack - most important technologies
+    // Featured tech stack - highlighting architecture & methodologies (non-duplicate with Skills section)
     const featuredTech = [
-        { name: 'Java', category: 'Language' },
-        { name: 'Spring Boot', category: 'Framework' },
-        { name: 'React', category: 'Frontend' },
-        { name: 'Docker', category: 'DevOps' },
-        { name: 'Kubernetes', category: 'DevOps' },
-        { name: 'AWS', category: 'Cloud' },
-        { name: 'PostgreSQL', category: 'Database' },
-        { name: 'Jenkins', category: 'CI/CD' },
-        { name: 'Microservices', category: 'Architecture' },
-        { name: 'REST APIs', category: 'Backend' },
-        { name: 'Git', category: 'Version Control' },
-        { name: 'JUnit', category: 'Testing' }
+        { name: 'Microservices Architecture', category: 'Architecture' },
+        { name: 'Event-Driven Design', category: 'Architecture' },
+        { name: 'RESTful API Design', category: 'Backend' },
+        { name: 'CI/CD Pipelines', category: 'DevOps' },
+        { name: 'Containerization', category: 'DevOps' },
+        { name: 'Cloud Infrastructure', category: 'Cloud' },
+        { name: 'Agile/Scrum', category: 'Methodology' },
+        { name: 'Test-Driven Development', category: 'Practice' },
+        { name: 'Database Optimization', category: 'Performance' },
+        { name: 'Security & RBAC', category: 'Security' },
+        { name: 'Distributed Systems', category: 'Architecture' },
+        { name: 'API Gateway Pattern', category: 'Architecture' }
     ];
 
     return (
