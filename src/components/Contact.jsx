@@ -15,7 +15,7 @@ const Contact = () => {
                 transition={{ duration: 0.5 }}
                 className="contact-content"
             >
-                <p className="contact-overline">05. What's Next?</p>
+                <p className="contact-overline">What's Next?</p>
                 <h2 className="contact-title">Get In Touch</h2>
                 <p className="contact-desc">
                     I'm currently looking for new opportunities, my inbox is always open.

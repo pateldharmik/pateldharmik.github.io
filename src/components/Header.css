@@ -1,3 +1,25 @@
+/* Skip to main content link for accessibility */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-primary);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    border-radius: 0 0 4px 0;
+    z-index: 100;
+    transition: top 0.3s ease;
+}
+
+.skip-to-content:focus {
+    top: 0;
+    outline: 2px solid var(--accent-secondary);
+    outline-offset: 2px;
+}
+
 .header {
     position: fixed;
     top: 0;
@@ -27,22 +49,72 @@
     height: 60px;
 }
 
+/* 3-Column Layout: Left (Nav), Center (Logo), Right (Actions) */
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    position: relative;
 }
 
+.nav-left,
+.nav-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.nav-left {
+    justify-content: flex-start;
+}
+
+.nav-center {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-right {
+    justify-content: flex-end;
+}
+
+/* Logo Styles with Blinking Cursor Animation */
 .logo a {
     color: var(--text-primary);
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
     font-family: var(--font-mono);
     border: 2px solid var(--text-primary);
     padding: 5px 10px;
     border-radius: var(--border-radius);
     transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.logo a::after {
+    content: '|';
+    margin-left: 2px;
+    animation: blink 1s step-end infinite;
+    color: var(--accent-primary);
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
 }
 
 [data-theme='dark'] .logo a {
@@ -55,38 +127,47 @@
     box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
 }
 
-.nav-links {
+/* Navigation Links (Left Section) */
+.nav-left ol {
     display: flex;
-    align-items: center;
-}
-
-.nav-links ol {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
+    gap: 20px;
 }
 
-.nav-links ol li {
-    margin: 0 5px;
-}
-
-.nav-links ol li a {
-    padding: 10px;
+.nav-left ol li a {
     font-family: var(--font-mono);
     font-size: 14px;
     color: var(--text-primary);
     transition: color 0.3s ease;
+    position: relative;
+    padding: 5px 0;
 }
 
-[data-theme='dark'] .nav-links ol li a:hover {
+.nav-left ol li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-left ol li a:hover::after {
+    width: 100%;
+}
+
+[data-theme='dark'] .nav-left ol li a:hover {
     color: var(--accent-primary);
 }
 
+/* Theme Toggle (Right Section) */
 .theme-toggle-wrapper {
-    margin: 0 15px;
+    margin-right: 15px;
 }
 
 .theme-toggle {
@@ -104,6 +185,13 @@
     transform: scale(1.1);
 }
 
+/* Resume Buttons (Right Section) */
+.resume-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
 .btn-resume {
     color: var(--accent-primary);
     background-color: transparent;
@@ -114,7 +202,6 @@
     font-family: var(--font-mono);
     line-height: 1;
     text-decoration: none;
-    margin-left: 5px;
     font-weight: 500;
     transition: all 0.2s ease;
 }
@@ -133,6 +220,11 @@
     background-color: var(--accent-secondary);
     border-color: var(--accent-secondary);
     box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.btn-resume-download {
+    padding: 0.6rem 0.8rem;
+    font-size: 13px;
 }
 
 /* Mobile Menu Button */
@@ -208,12 +300,32 @@
     width: fit-content;
 }
 
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+    .resume-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
 @media (max-width: 768px) {
     .desktop-nav {
         display: none;
     }
 
+    .nav-center {
+        position: static;
+        transform: none;
+        flex: 1;
+        justify-content: flex-start;
+    }
+
     .mobile-menu-btn {
         display: block;
+    }
+
+    .logo a {
+        font-size: 14px;
+        padding: 4px 8px;
     }
 }
